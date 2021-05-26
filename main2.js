@@ -4,9 +4,18 @@ function preload(){
  img = loadImage("Tv&ac.jpg")
 }
 
+
 function setup(){
     canvas=createCanvas(640,420);
     canvas.center();
+    bjectDetector = ml5.objectDetector('cocossd', modelLoaded)
+    document.getElementById("status").innerHTML = "Status : Detecting Objects";
+}
+
+function modelLoaded() {
+    console.log("Model Loaded!")
+    status = true;
+    objectDetector.detect(image, gotResult);
 }
 
 function draw(){
@@ -21,4 +30,12 @@ function draw(){
     noFill();
     stroke("#FF0000")
     rect(150,10,250,120);
+}
+
+function gotResult(error, results) {
+    if (error) {
+        console.log(error);
+    }
+    object = results;
+    console.log(results);
 }
