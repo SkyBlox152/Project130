@@ -1,7 +1,7 @@
-img="";
-object = [];
-status1="";
-function preload(){
+ img="";
+ object = [];
+ status1="";
+ function preload(){
  img = loadImage("Bedroom.jpg")
 }
 
@@ -27,6 +27,16 @@ function draw(){
     stroke(r,g,b)
     rect(object[i].x, object[i].y, object[i].width, object[i].height);
     }
+    fill("#FF0000");
+    text("bed",160,215);
+    noFill();
+    stroke("#FF0000")
+    rect(150,200,360,200);
+    fill("#FF0000");
+    text("table",140,260);
+    noFill();
+    stroke("#FF0000")
+    rect(130,250,120,100);
 }
 
 function modelLoaded() {
